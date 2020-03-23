@@ -16,18 +16,22 @@ public class FlightDetails {
 		FlightServiceImpl flightServiceobj=new FlightServiceImpl();
 		do
 		{
-			System.out.println("enter ur choice");
+			System.out.println("ENTER THE OPERATION YOU WANT TO PERFORM");
 			System.out.println("1. Add a new flight");
-			System.out.println("2. modify the flight");
-			System.out.println("3. view flight");
-			System.out.println("4 view all the details of flight");
-			System.out.println("5.delete flight");
+			System.out.println("2. Modify the flight");
+			System.out.println("3. View flight");
+			System.out.println("4. View all the details of flight");
+			System.out.println("5. Delete flight");
 			Scanner sc=new Scanner(System.in);
-			int choice=sc.nextInt();
+			int choice=sc.nextInt();  
 			switch(choice)
 			{
 				case 1:flightServiceobj.addFlight(new Flight(11231,"ABCDE","XYZ0",25));
 				break;
+				case 2:
+					Flight flightuser = flightServiceobj.modifyFlight(new Flight(12355,"ABCDE","XYZ0",25));
+					//System.out.println(flightuser.getFlightNumber()+" "+flightuser.getCarrierName()+" "+flightuser.getFlightModel()+" "+flightuser.getSeatCapacity());
+					break;
 				case 3:
 					try
 					{
@@ -35,7 +39,7 @@ public class FlightDetails {
 					System.out.println(flightobj.getFlightNumber()+" "+flightobj.getFlightModel()+" "+flightobj.getSeatCapacity()+" "+flightobj.getCarrierName());
 					}
 					catch(MyException e)
-					{
+					{ 
 						System.out.println(e.getMessage());
 					}
 					break;
@@ -43,15 +47,12 @@ public class FlightDetails {
 						List<Flight> flight=flightServiceobj.viewFlightServices();
 						for(Flight flightobj:flight)
 						{
-							System.out.println(flightobj.getFlightNumber()+" "+flightobj.getFlightModel()+" "+flightobj.getCarrierName()+" "+flightobj.getSeatCapacity());
+							System.out.println(flightobj.getFlightNumber()+"       "+flightobj.getFlightModel()+"        "+flightobj.getCarrierName()+"        "+flightobj.getSeatCapacity());
 						    
-						}
+					}
 		
 					break;
-				case 2:
-					Flight flightuser = flightServiceobj.modifyFlight(new Flight(12355,"ABCDE","XYZ0",25));
-					//System.out.println(flightuser.getFlightNumber()+" "+flightuser.getCarrierName()+" "+flightuser.getFlightModel()+" "+flightuser.getSeatCapacity());
-					break;
+				
 				case 5:
 					try
 					{
@@ -70,7 +71,7 @@ public class FlightDetails {
 				
 			
 		}while(ch=='y'|| ch=='Y');
-		
+		   
 		
 		
 

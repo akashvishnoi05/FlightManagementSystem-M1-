@@ -46,14 +46,14 @@ public class FlightDaoImpl {
 	public void deleteFlight(int flightNumber)
 	{
 		
-		for(Flight flightobj:ft)
+		for(Flight flightobj:ft) 
 		{
 			if(flightobj.getFlightNumber()==flightNumber)
 			{
 				ft.remove(flightobj);
 			}
 		}
-	}
+	} 
 	
 	
  
